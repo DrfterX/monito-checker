@@ -1,0 +1,50 @@
+{
+  "name": "monito-checker",
+  "version": "0.1.0",
+  "description": "API Health Check Engine — zero-dependency HTTP health checker with CLI. Use standalone or deploy your own Cloudflare Worker.",
+  "type": "module",
+  "bin": {
+    "monito": "./dist/cli/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./cli": {
+      "types": "./dist/cli/index.d.ts",
+      "import": "./dist/cli/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "health-check",
+    "uptime-monitor",
+    "api-monitoring",
+    "cloudflare-workers"
+  ],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250214.0",
+    "@types/node": "^25.9.3",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

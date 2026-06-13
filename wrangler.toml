@@ -1,0 +1,26 @@
+# Monito Checker — Minimal Worker Config
+# Reference wrangler.toml for self-hosted deployments.
+# Copy this file to your Worker project and adjust.
+
+name = "monito-checker"
+compatibility_date = "2025-04-01"
+main = "src/index.ts"
+
+# ─── CRON Trigger (optional, uncomment to enable) ─────────────────────
+# [triggers]
+# crons = ["*/5 * * * *"]
+
+# ─── Environment Variables ─────────────────────────────────────────────
+# [vars]
+# MONITORS = '[{"id":"api-1","url":"https://example.com/health","method":"GET","timeout_ms":10000,"check_interval":300,"status":"unknown","consecutive_failures":0,"name":"Example API","last_check_at":null,"last_status_code":null,"last_response_time_ms":null,"created_at":"","updated_at":""}]'
+
+# ─── D1 Database (optional, for persistent check history) ─────────────
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "monito-db"
+# database_id = "YOUR_DATABASE_ID"
+
+# ─── KV Namespace (optional, for state/cache) ─────────────────────────
+# [[kv_namespaces]]
+# binding = "MONITO_STATE"
+# id = "YOUR_KV_NAMESPACE_ID"
